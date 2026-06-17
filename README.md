@@ -34,3 +34,6 @@ O app espera uma tabela `posts` no Supabase com pelo menos:
 
 - `id`: identificador numérico.
 - `title`: texto do post.
+
+Para liberar leitura, criacao e remocao em um projeto de teste sem login,
+rode o SQL em `supabase-policies.sql` no SQL Editor do Supabase.

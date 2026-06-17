@@ -9,6 +9,14 @@ export default function App() {
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState("");
 
+  function getFriendlyError(error, action) {
+    if (error?.message?.includes("row-level security")) {
+      return `O Supabase bloqueou ${action} por causa das policies de RLS da tabela posts.`;
+    }
+
+    return `Nao foi possivel ${action} agora. Tente novamente em alguns segundos.`;
+  }
+
   async function loadPosts() {
     setIsLoading(true);
     setError("");
@@ -19,7 +27,7 @@ export default function App() {
       .order("id", { ascending: false });
 
     if (error) {
-      setError("Nao foi possivel carregar os posts. Confira a conexao com o Supabase.");
+      setError(getFriendlyError(error, "carregar os posts"));
       setPosts([]);
       setIsLoading(false);
       return;
@@ -41,7 +49,7 @@ export default function App() {
       .insert([{ title: cleanTitle }]);
 
     if (error) {
-      setError("Nao foi possivel salvar agora. Tente novamente em alguns segundos.");
+      setError(getFriendlyError(error, "salvar"));
       setIsSaving(false);
       return;
     }
@@ -63,7 +71,7 @@ export default function App() {
 
     if (error) {
       setPosts(previousPosts);
-      setError("Nao foi possivel remover este post.");
+      setError(getFriendlyError(error, "remover este post"));
     }
   }
 
