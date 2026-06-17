@@ -1,16 +1,16 @@
-# Mural de ideias
+# Supabase teste: Mural de Idéias ⭐
 
-Aplicacao React com Vite e Supabase para criar, listar, buscar e remover posts simples.
+Aplicação React com Vite e Supabase para criar, listar, buscar e remover posts simples.
 
 ## Rodando localmente
 
-1. Instale as dependencias:
+1. Instale as dependências:
 
 ```bash
 npm install
 ```
 
-2. Configure as variaveis em `.env`:
+2. Configure as variáveis em `.env`:
 
 ```bash
 VITE_SUPABASE_URL=sua_url_do_supabase
@@ -26,11 +26,11 @@ npm run dev
 ## Scripts
 
 - `npm run dev`: inicia o Vite localmente.
-- `npm run build`: gera a versao de producao em `dist`.
+- `npm run build`: gera a versão de produção em `dist`.
 
 ## Tabela esperada
 
 O app espera uma tabela `posts` no Supabase com pelo menos:
 
-- `id`: identificador numerico.
+- `id`: identificador numérico.
 - `title`: texto do post.
